@@ -25,7 +25,6 @@ def run():
         submit_btn.scroll_into_view_if_needed()
         submit_btn.wait_for(state="visible", timeout=10000)
 
-        # ✅ THIS is the missing piece
         page.on("dialog", lambda dialog: dialog.accept())
 
         submit_btn.click()
