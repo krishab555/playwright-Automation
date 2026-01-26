@@ -105,9 +105,15 @@ def run():
         page.fill("input[name='expiry_month']", "12")
         page.fill("input[name='expiry_year']", "2025")  
         time.sleep(3)
-        page.click("button[id='pay and confirm order']")
+        page.click("button[id='submit']")
         print("Payment details submitted")
         time.sleep(3)
+
+        page.click("text= Delete Account")
+        print("Account deletion Successful ")
+        time.sleep(2)
+        page.click("text=Continue")
+
 
         browser.close()
 
