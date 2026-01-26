@@ -99,6 +99,16 @@ def run():
         print("Proceeded to Place Order page")
         time.sleep(2)
 
+        page.fill("input[name='name_on_card']", "Krisha Bhandari")
+        page.fill("input[name='card_number']", "4111111111111111")
+        page.fill("input[name='cvc']", "123")
+        page.fill("input[name='expiry_month']", "12")
+        page.fill("input[name='expiry_year']", "2025")  
+        time.sleep(3)
+        page.click("button[id='pay and confirm order']")
+        print("Payment details submitted")
+        time.sleep(3)
+
         browser.close()
 
 if __name__ == "__main__":
