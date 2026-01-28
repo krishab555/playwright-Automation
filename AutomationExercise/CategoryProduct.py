@@ -12,7 +12,7 @@ def run():
 
         side_bar = page.locator("text=Category")
         side_bar.scroll_into_view_if_needed()
-        print("Scrolled to Category section")
+        print("Scrolled to Category section......")
         time.sleep(2)
 
         # Click on Women's category
@@ -35,7 +35,7 @@ def run():
         click_category = page.locator("a[href='#Men']")
         click_category.click()
         print("Clicked on Men's category")
-        time.sleep(5)
+        time.sleep(2)
 
         click_categorys = page.locator("a[href='/category_products/3']")
         click_categorys.click()
