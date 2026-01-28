@@ -10,13 +10,8 @@ def run():
         print("Website opened successfully")
         time.sleep(2)
 
-        page.click("text= Products")
-        print("Navigated to Products page")
-        time.sleep(2)
-
-        # Scroll to Category section
-        category_section = page.locator("text=Category")
-        category_section.scroll_into_view_if_needed()
+        side_bar = page.locator("text=Category")
+        side_bar.scroll_into_view_if_needed()
         print("Scrolled to Category section")
         time.sleep(2)
 
@@ -30,12 +25,10 @@ def run():
         click_categorys.click()
         print("Clicked on Dresses")
         time.sleep(2)
-        page.go_back()
-        time.sleep(2)
-         # Scroll to Category section
-        category_section = page.locator("text=Category")
-        category_section.scroll_into_view_if_needed()
-        print("Scrolled to Category section")
+
+        side_bar = page.locator("text=Category")
+        side_bar.scroll_into_view_if_needed()
+        print("Scrolled to Category section again")
         time.sleep(2)
        
        # Click on Women's category
