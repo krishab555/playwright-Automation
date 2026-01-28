@@ -1,3 +1,4 @@
+#Register user using existing email.
 from playwright.sync_api import sync_playwright
 import time
 def run():
