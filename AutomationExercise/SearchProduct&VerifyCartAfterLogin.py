@@ -22,6 +22,21 @@ def run():
         print("Clicked on search button")
         time.sleep(2)
 
+        scroll_target = page.locator("div[class='features_items']")
+        scroll_target.wait_for(state="visible")
+        scroll_target.scroll_into_view_if_needed()      
+        print("Search executed for 'Tshirt'")
+        time.sleep(2)
+
+        Add_to_Cart = page.locator("text=Add to Cart").first
+        Add_to_Cart.scroll_into_view_if_needed()
+        Add_to_Cart.click()
+        print("Product added to cart")
+        time.sleep(2)
+
+        page.click("text=View Cart")
+        print("Navigated to Cart page")
+        time.sleep(2)
 
         browser.close()
 if __name__ == "__main__":
