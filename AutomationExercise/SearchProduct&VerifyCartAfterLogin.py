@@ -38,6 +38,19 @@ def run():
         print("Navigated to Cart page")
         time.sleep(2)
 
+        page.click("text=signup / login")
+        print("Navigated to signup / login page")
+        time.sleep(2)
+        page.fill("input[data-qa='login-email']", "krisha1769683550@example.com")
+        page.fill("input[data-qa='login-password']", "Krish@123")
+        page.click("button[data-qa='login-button']")
+        print("Login successful")
+        time.sleep(2) 
+
+        page.click("text= Cart")
+        print("Navigated to Cart page after login")
+        time.sleep(2)
+
         browser.close()
 if __name__ == "__main__":
     run()   
