@@ -15,6 +15,7 @@ def run():
 
         name = "Krisha"       #enter name email
         email = f"krisha{int(time.time())}@example.com"
+        print(f"Using email: {email}")
 
         page.fill("input[data-qa='signup-name']", name)
         page.fill("input[data-qa='signup-email']", email)
@@ -22,6 +23,7 @@ def run():
         # Click Signup
         page.click("button[data-qa='signup-button']")
         page.wait_for_selector("input[id='password']", timeout=30000)
+        print(f"Using password: {'Krish@123'}")
         print("Signup page loaded")
         time.sleep(2)
 
@@ -60,11 +62,11 @@ def run():
         print(f"Logged in as {name}")
         time.sleep(2)
 
-        # Delete Account
-        page.click("a[href='/delete_account']")
-        page.wait_for_selector("text=Account Deleted!", timeout=30000)
-        print("Account Deleted!")
-        time.sleep(2)
+        # # Delete Account
+        # page.click("a[href='/delete_account']")
+        # page.wait_for_selector("text=Account Deleted!", timeout=30000)
+        # print("Account Deleted!")
+        # time.sleep(2)
 
         page.click("a[data-qa='continue-button']") #continue after delete
 
