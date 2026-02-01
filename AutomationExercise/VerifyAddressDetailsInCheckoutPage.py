@@ -58,6 +58,11 @@ def run():
         print("Account Created!")
         time.sleep(2)
 
+        page.click("a[data-qa='continue-button']")
+        page.wait_for_selector(f"text=Logged in as {name}", timeout=30000)
+        print(f"Logged in as {name}")
+        time.sleep(2)
+
 
        
 
