@@ -76,6 +76,37 @@ def run():
         print("Clicked on Add to Cart button")
         time.sleep(2)
 
+        page.click("text=View Cart")
+        print("Navigated to Cart page")
+        time.sleep(2)   
+
+        page.click("text=proceed to checkout")
+        print("Proceeded to checkout page")
+        time.sleep(2)   
+
+        # Verify Address Details
+        billing_address = page.locator("ul[id='address_delivery'] li")
+        address_lines = billing_address.all_text_contents()
+        expected_details = [
+            "Krisha Bhandari",
+            "MyCompany",
+            "Toronto, Canada",
+            "Tinkune",
+            "Ontario",
+            "Toronto",
+            "M5V 3L9",
+            "Canada",
+            "+14161234567"
+        ]
+        for detail in expected_details:
+            if any(detail in line for line in address_lines):
+                print(f"Verified: {detail}")
+            else:
+                print(f"Missing: {detail}")
+        time.sleep(2)
+
+
+
 
 if __name__ == "__main__":
  run()
