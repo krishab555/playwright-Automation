@@ -63,8 +63,19 @@ def run():
         print(f"Logged in as {name}")
         time.sleep(2)
 
+        page.click("text=products")
+        print("Navigated to Products page")
+        time.sleep(2)
 
-       
+        view_product = page.locator("a[href='/product_details/1']")
+        view_product.wait_for(state="visible", timeout=100)
+        view_product.click()
+        print("Clicked on the view product")
+
+        page.click("text=Add to Cart")
+        print("Clicked on Add to Cart button")
+        time.sleep(2)
+
 
 if __name__ == "__main__":
-    run()
+ run()
