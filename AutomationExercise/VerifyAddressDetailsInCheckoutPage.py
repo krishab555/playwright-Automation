@@ -105,6 +105,15 @@ def run():
                 print(f"Missing: {detail}")
         time.sleep(2)
 
+        page.click("a[href='/delete_account']")
+        page.wait_for_selector("text=Account Deleted!", timeout=30000)
+        print("Account Deleted!")
+        time.sleep(2)
+
+        page.click("a[data-qa='continue-button']")
+        time.sleep(2)
+        browser.close()
+
 
 
 
