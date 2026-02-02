@@ -10,9 +10,6 @@ def run():
         print("Website opened successfully")
         time.sleep(2)
 
-        # scroll_page = page.locator("text= Products")
-        # scroll_page.scroll_into_view_if_needed()
-        # time.sleep(2)
 
         view_product = page.locator("a[href='/product_details/1']")
         view_product.wait_for(state="visible", timeout=10000)
@@ -111,12 +108,11 @@ def run():
         time.sleep(2)
         page.wait_for_selector("text=Your order has been placed successfully!", timeout=30000)
         print("Order placed successfully!")
-        time.sleep(2)
+        time.sleep(2)      
 
-        # Download Invoice
-        page.click("a[href='/download_invoice']")
-        print("Clicked on Download Invoice")
-        time.sleep(5)  # Wait for download to complete  
+        page.click("a[data-qa='continue-button']") #continue after delete
+        browser.close()
+        print("Test completed successfully!")
 
 
 
