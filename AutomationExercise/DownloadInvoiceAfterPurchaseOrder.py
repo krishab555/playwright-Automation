@@ -112,9 +112,11 @@ def run():
         page.wait_for_selector("text=Your order has been placed successfully!", timeout=30000)
         print("Order placed successfully!")
         time.sleep(2)
-        page.click("text=Download Invoice")
+
+        # Download Invoice
+        page.click("a[href='/download_invoice']")
         print("Clicked on Download Invoice")
-        time.sleep(5)  # Wait for download to complete
+        time.sleep(5)  # Wait for download to complete  
 
 
 
