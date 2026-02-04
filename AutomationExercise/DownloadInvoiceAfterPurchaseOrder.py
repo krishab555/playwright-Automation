@@ -106,16 +106,27 @@ def run():
         page.click("button[id='submit']")
         print("Payment details submitted")
         time.sleep(2)
-        page.wait_for_selector("text=Your order has been placed successfully!", timeout=30000)
+        page.wait_for_selector("text=Congratulations! Your order has been confirmed", timeout=30000)
         print("Order placed successfully!")
-        time.sleep(2)      
+        time.sleep(2) 
+        # Download Invoice
+        invoice = page.locator("xpath=/html/body/section/div/div/div/a")
+        invoice.wait_for(state="visible", timeout=30000)
 
-        page.click("a[data-qa='continue-button']") #continue after delete
-        browser.close()
-        print("Test completed successfully!")
+        invoice_url = invoice.get_attribute("href")
+        print("Invoice URL:", invoice_url)
 
+        response = page.request.get(invoice_url)
 
+        with open("invoice.pdf", "wb") as f:
+            f.write(response.body())
 
+        print("Invoice downloaded successfully")
+
+        # Continue AFTER download
+        page.locator("text=Continue").click()
+
+       
         browser.close()
 if __name__ == "__main__":
     run()
